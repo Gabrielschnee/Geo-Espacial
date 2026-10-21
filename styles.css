@@ -12,7 +12,7 @@
     .nav-links a:hover { color:#fff; }
     .nav-buy { padding:7px 14px; color:#fff; background:#1684d8; border-radius:20px; }
     .hero { min-height:820px; height:100svh; max-height:1050px; position:relative; overflow:hidden; color:#fff; background:#203c4d; display:flex; justify-content:center; text-align:center; }
-    .hero-photo { position:absolute; inset:-12px; width:calc(100% + 24px); height:calc(100% + 24px); object-fit:cover; object-position:center 54%; filter:blur(4px) saturate(.78); transform:scale(1.02); }
+    .hero-photo { position:absolute; inset:-12px; width:calc(100% + 24px); height:calc(100% + 24px); object-fit:cover; object-position:center 54%; filter:blur(5px) saturate(.78); transform:scale(1.02); }
     .scene-video { opacity:0; transition:opacity 1.35s ease; }
     .scene-video.is-active { opacity:1; }
     .hero::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(9,24,37,.46) 0%,rgba(10,28,42,.16) 32%,rgba(10,28,42,.12) 57%,rgba(9,23,34,.68) 100%); }

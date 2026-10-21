@@ -85,25 +85,40 @@
           <h2>Precisão que começa<br/>antes do primeiro voo.</h2>
           <p>Equipamentos e sistemas trabalham juntos para capturar, posicionar e transformar cada levantamento em informação confiável.</p>
         </div>
-        <article class="equipment-feature">
-          <div class="equipment-feature-copy">
-            <span class="equipment-index">01 / PLATAFORMA AÉREA</span>
-            <h3>Uma nova perspectiva<br/>do território.</h3>
-            <p>Aeronaves remotamente pilotadas levam os sensores até a área de interesse e cobrem o terreno com eficiência.</p>
+        <div class="equipment-carousel" aria-label="Equipamentos usados nos levantamentos">
+          <div class="equipment-track" id="equipmentTrack" tabindex="0">
+            <article class="equipment-slide equipment-feature" aria-label="1 de 3: Plataforma aérea">
+              <div class="equipment-feature-copy">
+                <span class="equipment-index">01 / PLATAFORMA AÉREA</span>
+                <h3>Uma nova perspectiva<br/>do território.</h3>
+                <p>Aeronaves remotamente pilotadas levam os sensores até a área de interesse e cobrem o terreno com eficiência.</p>
+              </div>
+              <img src="assets/camera-rgb-drone.jpg" alt="Câmera RGB instalada em uma aeronave remotamente pilotada" loading="lazy" />
+            </article>
+            <article class="equipment-slide equipment-item" aria-label="2 de 3: Câmeras e sensores">
+              <span class="equipment-index">02 / CAPTURA</span>
+              <h3>Câmeras e sensores</h3>
+              <p>Sensores de imagem capturam detalhes da superfície para compor ortofotos e modelos digitais do terreno.</p>
+              <div class="equipment-slide-visual equipment-visual-camera" aria-hidden="true"><span>RGB</span><i></i></div>
+            </article>
+            <article class="equipment-slide equipment-item" aria-label="3 de 3: GNSS e apoio de campo">
+              <span class="equipment-index">03 / POSICIONAMENTO</span>
+              <h3>GNSS e apoio de campo</h3>
+              <p>Receptores geodésicos e pontos de controle ajudam a posicionar e validar os dados levantados.</p>
+              <div class="equipment-slide-visual equipment-visual-gnss" aria-hidden="true"><span>GNSS</span><i></i></div>
+            </article>
           </div>
-          <img src="assets/camera-rgb-drone.jpg" alt="Câmera RGB instalada em uma aeronave remotamente pilotada" loading="lazy" />
-        </article>
-        <div class="equipment-grid">
-          <article class="equipment-item">
-            <span class="equipment-index">02 / CAPTURA</span>
-            <h3>Câmeras e sensores</h3>
-            <p>Sensores de imagem capturam detalhes da superfície para compor ortofotos e modelos digitais do terreno.</p>
-          </article>
-          <article class="equipment-item">
-            <span class="equipment-index">03 / POSICIONAMENTO</span>
-            <h3>GNSS e apoio de campo</h3>
-            <p>Receptores geodésicos e pontos de controle ajudam a posicionar e validar os dados levantados.</p>
-          </article>
+          <div class="equipment-carousel-controls">
+            <div class="equipment-pagination" role="group" aria-label="Escolher equipamento">
+              <button class="equipment-dot is-active" type="button" aria-label="Mostrar 1: Plataforma aérea" aria-current="true"></button>
+              <button class="equipment-dot" type="button" aria-label="Mostrar 2: Câmeras e sensores"></button>
+              <button class="equipment-dot" type="button" aria-label="Mostrar 3: GNSS e apoio de campo"></button>
+            </div>
+            <div class="equipment-arrows">
+              <button class="equipment-arrow equipment-prev" type="button" aria-label="Equipamento anterior">‹</button>
+              <button class="equipment-arrow equipment-next" type="button" aria-label="Próximo equipamento">›</button>
+            </div>
+          </div>
         </div>
         <p class="equipment-note">A configuração de cada levantamento é definida de acordo com a área, o terreno e os objetivos do projeto.</p>
       </div>

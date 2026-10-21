@@ -81,3 +81,43 @@
         revealObserver.observe(target);
       });
     }
+
+    const equipmentTrack = document.querySelector('#equipmentTrack');
+    if (equipmentTrack) {
+      const equipmentSlides = [...equipmentTrack.querySelectorAll('.equipment-slide')];
+      const equipmentDots = [...document.querySelectorAll('.equipment-dot')];
+      let activeEquipment = 0;
+
+      function goToEquipment(index) {
+        activeEquipment = (index + equipmentSlides.length) % equipmentSlides.length;
+        equipmentTrack.scrollTo({ left: equipmentSlides[activeEquipment].offsetLeft - equipmentTrack.offsetLeft, behavior: 'smooth' });
+        updateEquipmentControls();
+      }
+
+      function updateEquipmentControls() {
+        equipmentDots.forEach((dot, index) => {
+          const isActive = index === activeEquipment;
+          dot.classList.toggle('is-active', isActive);
+          if (isActive) dot.setAttribute('aria-current', 'true');
+          else dot.removeAttribute('aria-current');
+        });
+      }
+
+      equipmentTrack.addEventListener('scroll', () => {
+        const trackCenter = equipmentTrack.scrollLeft + equipmentTrack.clientWidth / 2;
+        activeEquipment = equipmentSlides.reduce((closest, slide, index) => {
+          const slideCenter = slide.offsetLeft - equipmentTrack.offsetLeft + slide.offsetWidth / 2;
+          const bestDistance = Math.abs(equipmentSlides[closest].offsetLeft - equipmentTrack.offsetLeft + equipmentSlides[closest].offsetWidth / 2 - trackCenter);
+          return Math.abs(slideCenter - trackCenter) < bestDistance ? index : closest;
+        }, 0);
+        updateEquipmentControls();
+      }, { passive: true });
+
+      document.querySelector('.equipment-prev')?.addEventListener('click', () => goToEquipment(activeEquipment - 1));
+      document.querySelector('.equipment-next')?.addEventListener('click', () => goToEquipment(activeEquipment + 1));
+      equipmentDots.forEach((dot, index) => dot.addEventListener('click', () => goToEquipment(index)));
+      equipmentTrack.addEventListener('keydown', event => {
+        if (event.key === 'ArrowRight') { event.preventDefault(); goToEquipment(activeEquipment + 1); }
+        if (event.key === 'ArrowLeft') { event.preventDefault(); goToEquipment(activeEquipment - 1); }
+      });
+    }

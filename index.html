@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f5f5f7" />
+  <meta name="description" content="Geo Espacial — aerofotogrametria de alta precisão para revelar novas perspectivas do seu território." />
+  <title>Geo Espacial — O mundo, em perspectiva.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root { --ink:#1d1d1f; --muted:#6e6e73; --blue:#1769aa; --pale:#f5f5f7; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:#fff; font-family:'DM Sans',sans-serif; -webkit-font-smoothing:antialiased; }
+    a { color:inherit; text-decoration:none; }
+    .topbar { position:absolute; z-index:5; top:0; left:0; right:0; height:58px; color:#fff; background:rgba(14,28,40,.48); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); }
+    .nav { height:100%; max-width:1120px; padding:0 26px; margin:auto; display:flex; align-items:center; justify-content:space-between; }
+    .brand { display:flex; align-items:center; }
+    .brand img { display:block; width:148px; height:auto; border-radius:2px; }
+    .nav-links { display:flex; align-items:center; gap:34px; color:rgba(255,255,255,.86); font-size:12px; }
+    .nav-links a:hover { color:#fff; }
+    .nav-buy { padding:7px 14px; color:#fff; background:#1684d8; border-radius:20px; }
+    .hero { min-height:820px; height:100svh; max-height:1050px; position:relative; overflow:hidden; color:#fff; background:#203c4d; display:flex; justify-content:center; text-align:center; }
+    .hero-photo { position:absolute; inset:-8px; width:calc(100% + 16px); height:calc(100% + 16px); object-fit:cover; object-position:center 54%; filter:blur(2px) saturate(.78); transform:scale(1.015); }
+    .hero::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(9,24,37,.46) 0%,rgba(10,28,42,.16) 32%,rgba(10,28,42,.12) 57%,rgba(9,23,34,.68) 100%); }
+    .hero-content { position:relative; z-index:1; padding:clamp(140px,19vh,195px) 24px 180px; }
+    .overline { margin:0 0 13px; text-transform:uppercase; letter-spacing:2.2px; font-size:11px; font-weight:700; color:rgba(255,255,255,.82); }
+    h1 { font:600 clamp(54px,8.6vw,104px)/.98 Manrope,sans-serif; letter-spacing:-.075em; margin:0 auto; max-width:900px; }
+    .hero-content p { font-size:clamp(17px,2vw,21px); line-height:1.5; color:rgba(255,255,255,.86); margin:23px auto 28px; max-width:650px; }
+    .actions { display:flex; justify-content:center; gap:13px; align-items:center; }
+    .pill { display:inline-flex; align-items:center; justify-content:center; gap:9px; padding:12px 19px; border-radius:24px; color:#fff; background:#1684d8; font-size:14px; transition:background .2s,transform .2s; }
+    .pill:hover { background:#0874c6; transform:translateY(-1px); }
+    .pill.secondary { background:transparent; color:#fff; border:1px solid rgba(255,255,255,.7); }
+    .pill.secondary:hover { background:rgba(255,255,255,.12); }
+    .arrow { font-size:18px; line-height:12px; }
+    .hero-caption { position:absolute; z-index:2; bottom:30px; left:20px; right:20px; color:rgba(255,255,255,.72); font-size:11px; letter-spacing:.35px; }
+    .intro { background:var(--pale); text-align:center; padding:105px 24px 112px; }
+    .section-label { color:var(--blue); font-size:13px; font-weight:600; margin-bottom:12px; }
+    h2 { font:600 clamp(38px,6vw,68px)/1.02 Manrope,sans-serif; letter-spacing:-.07em; margin:0 auto; }
+    .intro p { max-width:690px; margin:21px auto 23px; font-size:19px; color:var(--muted); line-height:1.55; }
+    .link { color:var(--blue); font-size:16px; }
+    .link:hover { text-decoration:underline; }
+    .feature { min-height:650px; background:#fff; padding:92px 24px 0; text-align:center; overflow:hidden; }
+    .feature p { max-width:640px; margin:18px auto 25px; color:var(--muted); font-size:18px; line-height:1.5; }
+    .feature-image { display:block; width:min(1100px,100%); height:390px; margin:48px auto 0; object-fit:cover; object-position:center 60%; border-radius:22px 22px 0 0; }
+    .services { padding:20px max(24px,calc((100% - 1120px)/2)) 100px; background:#fff; }
+    .services-title { text-align:center; padding:42px 0 40px; }
+    .service-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .service { min-height:275px; padding:34px 30px; background:var(--pale); border-radius:18px; }
+    .service-icon { width:37px; height:37px; color:var(--blue); margin-bottom:24px; }
+    .service h3 { font:600 21px Manrope,sans-serif; letter-spacing:-.8px; margin:0 0 10px; }
+    .service p { color:var(--muted); line-height:1.6; font-size:14px; margin:0; }
+    .contact { margin:0 16px 16px; padding:86px 24px 90px; text-align:center; background:#f5f5f7; border-radius:22px; }
+    .contact h2 { max-width:720px; }
+    .contact p { color:var(--muted); font-size:18px; margin:16px 0 24px; }
+    .footer { padding:20px 24px; max-width:1120px; margin:auto; color:var(--muted); font-size:11px; display:flex; justify-content:space-between; gap:20px; }
+    @media(max-width:720px) {
+      .topbar { height:52px; }
+      .nav { padding:0 18px; }
+      .nav-links { gap:14px; }
+      .nav-links a:not(.nav-buy) { display:none; }
+      .brand img { width:132px; }
+      .hero { min-height:730px; height:94svh; }
+      .hero-content { padding-top:clamp(155px,23vh,200px); }
+      h1 { font-size:clamp(53px,12vw,76px); }
+      .hero-content p { max-width:370px; font-size:17px; }
+      .actions { flex-wrap:wrap; }
+      .intro { padding:78px 24px 82px; }
+      .intro p { font-size:17px; }
+      .feature { min-height:unset; padding-top:75px; }
+      .feature p { font-size:16px; }
+      .feature-image { height:280px; margin-top:36px; border-radius:15px 15px 0 0; }
+      .services { padding:0 18px 75px; }
+      .services-title { padding:45px 0 30px; }
+      .service-grid { grid-template-columns:1fr; gap:12px; }
+      .service { min-height:unset; padding:26px; }
+      .service-icon { margin-bottom:14px; }
+      .contact { margin:0 10px 10px; padding:70px 22px; }
+      .contact p { font-size:16px; line-height:1.5; }
+      .footer { flex-direction:column; gap:8px; padding:20px 22px; }
+    }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { transition:none!important; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="#inicio" class="brand" aria-label="Geo Espacial, início"><img src="assets/geo-espacial-logo.png" alt="Geo Espacial — Onde a precisão encontra o futuro" /></a>
+      <div class="nav-links"><a href="#solucoes">Soluções</a><a href="#empresa">A empresa</a><a class="nav-buy" href="#contato">Fale conosco</a></div>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" id="inicio">
+      <img class="hero-photo" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2400&q=90" alt="Extensos campos rurais vistos de um ponto elevado" />
+      <div class="hero-content">
+        <div class="overline">Geo Espacial · Aerofotogrametria</div>
+        <h1>O mundo,<br/>em perspectiva.</h1>
+        <p>Conheça seu território em cada detalhe. Imagens aéreas e dados precisos para decisões que movem o futuro.</p>
+        <div class="actions"><a class="pill" href="#solucoes">Descubra nossas soluções <span class="arrow">›</span></a><a class="pill secondary" href="#empresa">Conheça a Geo Espacial</a></div>
+      </div>
+      <div class="hero-caption">Precisão para enxergar além.</div>
+    </section>
+    <section class="intro" id="empresa">
+      <div class="section-label">Uma nova forma de ver</div>
+      <h2>O detalhe muda<br/>tudo.</h2>
+      <p>Com aerofotogrametria de alta precisão, transformamos paisagens em informação confiável — para planejar melhor, acompanhar mudanças e agir com segurança.</p>
+      <a class="link" href="#contato">Converse com nossa equipe <span class="arrow">›</span></a>
+    </section>
+    <section class="feature" id="solucoes">
+      <div class="section-label">Tecnologia a serviço do território</div>
+      <h2>Uma visão mais ampla.<br/>Uma medida mais precisa.</h2>
+      <p>Do levantamento aéreo ao produto cartográfico, cada etapa é pensada para levar informação clara do campo até a sua próxima decisão.</p>
+      <a class="link" href="#contato">Saiba como funciona <span class="arrow">›</span></a>
+      <img class="feature-image" src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1800&q=85" alt="Vista aérea de uma paisagem natural" loading="lazy" />
+    </section>
+    <section class="services">
+      <div class="services-title"><div class="section-label">O que fazemos</div><h2>Precisão em cada etapa.</h2></div>
+      <div class="service-grid">
+        <article class="service"><svg class="service-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M5 27.5 20 8l15 19.5H5Z" stroke="currentColor" stroke-width="1.8"/><path d="m12 27.5 8-11 8 11M20 8v19.5" stroke="currentColor" stroke-width="1.4"/></svg><h3>Aerofotogrametria</h3><p>Levantamentos aéreos de alta resolução para mapear grandes áreas com agilidade e detalhe.</p></article>
+        <article class="service"><svg class="service-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="m20 5 14 8v14l-14 8-14-8V13l14-8Z" stroke="currentColor" stroke-width="1.7"/><path d="m6 13 14 8 14-8M20 21v14M13 9l14 8M27 9l-14 8" stroke="currentColor" stroke-width="1.4"/></svg><h3>Modelos 3D e ortofotos</h3><p>Representações detalhadas do terreno para visualizar, medir e comparar com confiança.</p></article>
+        <article class="service"><svg class="service-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="17" cy="17" r="10" stroke="currentColor" stroke-width="1.8"/><path d="m24.5 24.5 9 9M12 18l4 4 7-9" stroke="currentColor" stroke-width="1.8"/></svg><h3>Inteligência geográfica</h3><p>Dados espaciais organizados para responder perguntas reais e apoiar o planejamento.</p></article>
+      </div>
+    </section>
+    <section class="contact" id="contato">
+      <div class="section-label">Vamos começar?</div>
+      <h2>Seu próximo projeto<br/>merece outra perspectiva.</h2>
+      <p>Conte o que você precisa mapear. A gente ajuda você a encontrar o melhor caminho.</p>
+      <a class="pill" href="mailto:contato@geoespacial.com.br">Fale com a Geo Espacial <span class="arrow">›</span></a>
+    </section>
+  </main>
+  <footer class="footer"><span>© 2026 Geo Espacial</span><span>Aerofotogrametria e inteligência geográfica.</span></footer>
+</body>
+</html>

@@ -124,6 +124,6 @@
       if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         window.setInterval(() => {
           if (!document.hidden) goToEquipment(activeEquipment + 1);
-        }, 3000);
+        }, 10000);
       }
     }
